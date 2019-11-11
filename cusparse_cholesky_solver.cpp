@@ -335,5 +335,5 @@ CuSparseCholeskySolver<T>::~CuSparseCholeskySolver()
 {
 }
 
-template CuSparseCholeskySolver<double>;
-template CuSparseCholeskySolver<float>;
+template class CuSparseCholeskySolver<double>;
+template class CuSparseCholeskySolver<float>;
