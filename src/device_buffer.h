@@ -55,6 +55,14 @@ struct DeviceBuffer
 		CUDA_CHECK(cudaMemset(data, 0, sizeof(T) * size));
 	}
 
+	bool empty() const { return !(data && size > 0); }
+
+	void assign(size_t size, const T* h_data)
+	{
+		allocate(size);
+		upload(h_data);
+	}
+
 	T* data;
 	size_t size;
 };
