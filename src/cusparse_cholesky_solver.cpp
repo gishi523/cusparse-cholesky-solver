@@ -135,7 +135,7 @@ public:
 	{
 		const T tol = static_cast<T>(1e-14);
 		int singularity = -1;
-		const auto status = cusolverSpXcsrcholZeroPivot(handle_, info_, tol, &singularity);
+		cusolverSpXcsrcholZeroPivot(handle_, info_, tol, &singularity);
 		if (position)
 			*position = singularity;
 		return singularity >= 0;
@@ -240,6 +240,8 @@ class CuSparseCholeskySolverImpl : public CuSparseCholeskySolver<T>
 
 public:
 
+	using Info = typename CuSparseCholeskySolver<T>::Info;
+
 	CuSparseCholeskySolverImpl(int size)
 	{
 		init();
@@ -252,7 +254,7 @@ public:
 	{
 		cholesky.init(cusolver);
 		doOrdering = false;
-		information = SUCCESS;
+		information = Info::SUCCESS;
 	}
 
 	void resize(int size) override
@@ -313,7 +315,7 @@ public:
 
 		// M = L * LT
 		if (!cholesky.factorize(Acsr))
-			information = NUMERICAL_ISSUE;
+			information = Info::NUMERICAL_ISSUE;
 	}
 
 	void solve(const T* b, T* x) override

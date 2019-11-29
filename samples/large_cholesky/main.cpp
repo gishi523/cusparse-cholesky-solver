@@ -54,7 +54,7 @@ static bool readMatrix(const std::string& filename, SparseMatrixCSC& A)
 			nnzL++;
 	}
 
-	if (triplets.size() != nnz)
+	if (triplets.size() != static_cast<size_t>(nnz))
 		return false;
 
 	A.resize(n, m);
