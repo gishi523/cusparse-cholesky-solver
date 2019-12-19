@@ -8,7 +8,7 @@ A sample code for sparse cholesky solver with cuSPARSE and cuSOLVER library
 
 ## References
 - [The API reference guide for cuSPARSE](https://docs.nvidia.com/cuda/cusparse/index.html)
-- [The API reference guide for cuSPARSE](https://docs.nvidia.com/cuda/cusolver/index.html)
+- [The API reference guide for cuSOLVER](https://docs.nvidia.com/cuda/cusolver/index.html)
 
 ## Requirement
 - CUDA
